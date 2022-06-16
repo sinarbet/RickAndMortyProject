@@ -17,7 +17,6 @@ const Character = ({ navigation, route }) => {
   }, []);
 
   const renderItem = ({ item }) => {
-    console.log(item)
     return (
       <TouchableOpacity style = {styles.cardsCharacters}>
         <Text style = {styles.text}>{item}</Text>
@@ -32,7 +31,7 @@ const Character = ({ navigation, route }) => {
                 style = {styles.viewImage}
                 source={{uri:data.image}}/>
             <View style = {{backgroundColor:'#e91e63'}}>
-              <Text style = {styles.textChapter}>{data.name}</Text>
+              <Text style = {styles.textChapter}>{data.name} - {data.species}</Text>
               <Text style = {styles.textChapter}>{data.gender}</Text>
               <Text style = {styles.textChapter}>{data.status}</Text>
             </View>

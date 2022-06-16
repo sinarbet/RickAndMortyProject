@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FlatList, View, TouchableOpacity, Text } from "react-native";
+import { FlatList, View, TouchableOpacity, Text, ImageBackground, Image } from "react-native";
 import styles from "./styles";
+import BackgroundImage from '../images/wallpaper2.jpeg';
+
+const DEFAULT_IMAGE = Image.resolveAssetSource(BackgroundImage).uri;
 
 const Episode = ({ navigation }) => {
   const [data, setData] = useState([]);
@@ -28,7 +31,7 @@ const Episode = ({ navigation }) => {
           {item.episode} - {item.name}
         </Text>
         <Text style = {styles.text}>
-          Character Size: {item.characters.length}
+          Character Count = {item.characters.length}
         </Text>
         <Text style = {styles.textDate}>
           {item.air_date}
@@ -36,9 +39,9 @@ const Episode = ({ navigation }) => {
       </TouchableOpacity>
     );
   };
-   
+
   return (
-    <View>
+    <ImageBackground source={{ uri: DEFAULT_IMAGE }} resizeMode="cover" style={styles.image}>
       <Text style = {styles.title}>RICK AND MORTY APP</Text>
         {data && (
           <FlatList
@@ -47,7 +50,7 @@ const Episode = ({ navigation }) => {
             keyExtractor={(item) => item.id.toString()}
           />
         )}
-    </View>
+    </ImageBackground>
   );
 }
 

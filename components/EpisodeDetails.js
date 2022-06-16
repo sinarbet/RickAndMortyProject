@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FlatList,View, TouchableOpacity, Text } from "react-native";
+import { FlatList, TouchableOpacity, Text, Image, ImageBackground } from "react-native";
 import styles from "./styles";
+import BackgroundImage from '../images/wallpaper.jpeg';
+
+const DEFAULT_IMAGE = Image.resolveAssetSource(BackgroundImage).uri;
 
 const EpisodeDetails = ({ navigation, route }) => {
   const [data, setData] = useState([]);
@@ -19,6 +22,7 @@ const EpisodeDetails = ({ navigation, route }) => {
   }, []);
 
   const renderItem = ({ item }) => {
+    const charID = item.substr(42);
     return (
       <TouchableOpacity 
         style = {styles.cardsDetail}
@@ -27,12 +31,15 @@ const EpisodeDetails = ({ navigation, route }) => {
         <Text style = {styles.textDetail}>
             {item}
         </Text>
+        <Text style = {styles.textDetail}>
+            CHARACTER - {charID}
+        </Text>
       </TouchableOpacity>
     );
   };
    
   return (
-    <View>
+    <ImageBackground source={{ uri: DEFAULT_IMAGE }} resizeMode="cover" style={styles.image}>
         {data && (
           <FlatList
             data={data}
@@ -40,7 +47,7 @@ const EpisodeDetails = ({ navigation, route }) => {
             keyExtractor={(item) => item.toString()}
           />
         )}
-    </View>
+    </ImageBackground>
   );
 }
 export default EpisodeDetails

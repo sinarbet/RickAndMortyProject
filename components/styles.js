@@ -4,7 +4,7 @@ export default StyleSheet.create({
     cards:{
         marginTop: 20,
         marginLeft: 50,
-        backgroundColor: '#389af8', 
+        backgroundColor: '#10b0c9', 
         width: 300, 
         height: 175, 
         borderRadius: 15
@@ -13,9 +13,9 @@ export default StyleSheet.create({
         marginTop: 20,
         marginLeft: 40,
         backgroundColor: '#e91e63', 
-        width: 320, 
-        height: 30, 
-        borderRadius: 15
+        width: 335, 
+        height: 35, 
+        borderRadius: 10
     },
     cardsCharacters:{
         marginTop: 20,
@@ -33,6 +33,10 @@ export default StyleSheet.create({
         height: 250, 
         borderRadius: 15
     },
+    image: {
+        flex: 1,
+        justifyContent: "center"
+    },
     text:{
         color: 'white',
         fontWeight: 'bold', 
@@ -41,10 +45,11 @@ export default StyleSheet.create({
     },
     textDetail:{
         textAlign:'center',
+        fontWeight: 'bold', 
         color: 'white'
     },
     textDate:{
-        color: 'white',
+        color: '#08394b',
         fontWeight: 'bold', 
         textAlign: 'center',
         marginTop: 30,
