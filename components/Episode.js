@@ -19,7 +19,6 @@ const Episode = ({ navigation }) => {
   }, []);
 
   const renderItem = ({ item }) => {
-    console.log(item.characters.length)
     return (
       <TouchableOpacity 
         style = {styles.cards}

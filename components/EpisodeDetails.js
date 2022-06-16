@@ -19,7 +19,6 @@ const EpisodeDetails = ({ navigation, route }) => {
   }, []);
 
   const renderItem = ({ item }) => {
-    console.log(item)
     return (
       <TouchableOpacity 
         style = {styles.cardsDetail}
