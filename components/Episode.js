@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { FlatList,View, TouchableOpacity, Text } from "react-native";
-import Characters from "./Characters";
+import { FlatList,View, TouchableOpacity, Text,StyleSheet } from "react-native";
+import styles from "./styles";
 
-export default function Episode() {
+const Episode = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -19,24 +19,27 @@ export default function Episode() {
   }, []);
 
   const renderItem = ({ item }) => {
-    console.log(item)
+    console.log(item.characters.length)
     return (
-      <TouchableOpacity style= {styles= {marginTop: 100,marginLeft: 50}}
-      onPress = {() => {<Characters/>}}
+      <TouchableOpacity style = {styles.cards}
+        onPress = {() => navigation.navigate('EpisodeDetails', {id:item.id})}
       >
-        <Text>{item.episode}</Text>
+        <Text 
+          style = {styles.text}>
+          {item.episode} - {item.name}
+        </Text>
+        <Text style = {styles.text}>
+          Character Size: {item.characters.length}</Text>
+        <Text style = {styles.textDate}>
+          {item.air_date}
+        </Text>
       </TouchableOpacity>
     );
-  };
-
-  const renderCharacters = () => {
-    return(    
-      <Characters/>
-      );
   };
    
   return (
     <View>
+      <Text style = {styles.title}>EPISODES</Text>
         {data && (
           <FlatList
             data={data}
@@ -47,3 +50,5 @@ export default function Episode() {
     </View>
   );
 }
+
+export default Episode

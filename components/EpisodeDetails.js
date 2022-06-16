@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { FlatList,View, TouchableOpacity, Text,Image } from "react-native";
+import { FlatList,View, TouchableOpacity, Text } from "react-native";
 
-const Characters = ({ navigation, route }) => {
+const EpisodeDetails = ({ navigation, route }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const fetchData = async (character) => { 
-    const resp = await fetch(route.params.character);
+  const fetchData = async (id) => {
+    const url = "https://rickandmortyapi.com/api/episode/"
+    const result = url.concat(route.params.id);
+    console.log("RESULTTT",result)
+    const resp = await fetch(result);
     const data = await resp.json();
-    setData(data.episode);
+    setData(data.characters);
     setLoading(false);
   };
   
@@ -19,11 +22,8 @@ const Characters = ({ navigation, route }) => {
     console.log(item)
     return (
       <TouchableOpacity style= {styles= {marginTop: 100,marginLeft: 50}}
-        >
+        onPress = {() => navigation.navigate('Characters', {character:item})} >
         <Text>{item}</Text>
-        <Image source={{
-          uri: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-        }}/>
       </TouchableOpacity>
     );
   };
@@ -40,4 +40,4 @@ const Characters = ({ navigation, route }) => {
     </View>
   );
 }
-export default Characters
+export default EpisodeDetails
