@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FlatList,View, TouchableOpacity, Text,StyleSheet } from "react-native";
+import { FlatList, View, TouchableOpacity, Text } from "react-native";
 import styles from "./styles";
 
 const Episode = ({ navigation }) => {
@@ -21,15 +21,16 @@ const Episode = ({ navigation }) => {
   const renderItem = ({ item }) => {
     console.log(item.characters.length)
     return (
-      <TouchableOpacity style = {styles.cards}
-        onPress = {() => navigation.navigate('EpisodeDetails', {id:item.id})}
-      >
+      <TouchableOpacity 
+        style = {styles.cards}
+        onPress = {() => navigation.navigate('EpisodeDetails', {id:item.id})}>
         <Text 
           style = {styles.text}>
           {item.episode} - {item.name}
         </Text>
         <Text style = {styles.text}>
-          Character Size: {item.characters.length}</Text>
+          Character Size: {item.characters.length}
+        </Text>
         <Text style = {styles.textDate}>
           {item.air_date}
         </Text>
@@ -39,7 +40,7 @@ const Episode = ({ navigation }) => {
    
   return (
     <View>
-      <Text style = {styles.title}>EPISODES</Text>
+      <Text style = {styles.title}>RICK AND MORTY APP</Text>
         {data && (
           <FlatList
             data={data}

@@ -19,8 +19,8 @@ const Characters = ({ navigation, route }) => {
   const renderItem = ({ item }) => {
     console.log(item)
     return (
-      <TouchableOpacity style = {styles.cards}>
-        <Text>{item}</Text>
+      <TouchableOpacity style = {styles.cardsCharacters}>
+        <Text style = {styles.text}>{item}</Text>
         <Image source={{
           uri: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
         }}/>

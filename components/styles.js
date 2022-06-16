@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     title:{
-      marginLeft: 160,
+      textAlign:'center',
       marginTop: 10, 
       color: 'black', 
       fontWeight: 'bold'
@@ -18,9 +18,17 @@ export default StyleSheet.create({
     cardsDetail:{
         marginTop: 20,
         marginLeft: 40,
-        backgroundColor: '#389af8', 
+        backgroundColor: '#e91e63', 
         width: 320, 
         height: 30, 
+        borderRadius: 15
+    },
+    cardsCharacters:{
+        marginTop: 20,
+        marginLeft: 50,
+        backgroundColor: 'gray', 
+        width: 300, 
+        height: 175, 
         borderRadius: 15
     },
     text:{
@@ -30,7 +38,8 @@ export default StyleSheet.create({
         marginTop: 35
     },
     textDetail:{
-        textAlign:'center'
+        textAlign:'center',
+        color: 'white'
     },
     textDate:{
         color: 'white',
