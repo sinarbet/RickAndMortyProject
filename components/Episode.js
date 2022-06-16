@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FlatList, View, TouchableOpacity, Text, ImageBackground, Image } from "react-native";
+import { FlatList, TouchableOpacity, Text, ImageBackground, Image } from "react-native";
 import styles from "./styles";
 import BackgroundImage from '../images/wallpaper2.jpeg';
 
