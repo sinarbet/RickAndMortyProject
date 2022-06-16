@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { FlatList,View, TouchableOpacity, Text,Image } from "react-native";
 import styles from "./styles";
 
-const Characters = ({ navigation, route }) => {
-  const [data, setData] = useState([]);
+const Character = ({ navigation, route }) => {
+  const [data, setData, name] = useState([]);
   const [loading, setLoading] = useState(true);
   const fetchData = async (character) => { 
     const resp = await fetch(route.params.character);
     const data = await resp.json();
-    setData(data.episode);
+    setData(data);
     setLoading(false);
   };
   
@@ -21,18 +21,27 @@ const Characters = ({ navigation, route }) => {
     return (
       <TouchableOpacity style = {styles.cardsCharacters}>
         <Text style = {styles.text}>{item}</Text>
-        <Image source={{
-          uri: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-        }}/>
       </TouchableOpacity>
     );
   };
    
   return (
     <View>
+        <TouchableOpacity style = {styles.cardsCharactersMain}>
+        <Image
+                style = {styles.viewImage}
+                source={{uri:data.image}}/>
+            <View style = {{backgroundColor:'#e91e63'}}>
+              <Text style = {styles.textChapter}>{data.name}</Text>
+              <Text style = {styles.textChapter}>{data.gender}</Text>
+              <Text style = {styles.textChapter}>{data.status}</Text>
+            </View>
+           
+      </TouchableOpacity>
+    
         {data && (
           <FlatList
-            data={data}
+            data={data.episode}
             renderItem={renderItem}
             keyExtractor={(item) => item.toString()}
           />
@@ -40,4 +49,4 @@ const Characters = ({ navigation, route }) => {
     </View>
   );
 }
-export default Characters
+export default Character

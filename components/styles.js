@@ -1,12 +1,6 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-    title:{
-      textAlign:'center',
-      marginTop: 10, 
-      color: 'black', 
-      fontWeight: 'bold'
-    },
     cards:{
         marginTop: 20,
         marginLeft: 50,
@@ -27,8 +21,16 @@ export default StyleSheet.create({
         marginTop: 20,
         marginLeft: 50,
         backgroundColor: 'gray', 
-        width: 300, 
-        height: 175, 
+        width: 310, 
+        height: 75, 
+        borderRadius: 15
+    },
+    cardsCharactersMain:{
+        marginTop: 20,
+        marginLeft: 50,
+        backgroundColor: 'gray', 
+        width: 310, 
+        height: 250, 
         borderRadius: 15
     },
     text:{
@@ -47,5 +49,22 @@ export default StyleSheet.create({
         textAlign: 'center',
         marginTop: 30,
         marginLeft: 130
+    },
+    textChapter:{
+        color: 'white',
+        fontWeight: 'bold', 
+        textAlign: 'center',
+        marginTop: 10
+    },
+    title:{
+        textAlign:'center',
+        marginTop: 10, 
+        color: 'black', 
+        fontWeight: 'bold'
+    },
+    viewImage:{
+        width: '50%',
+        height: '70%', 
+        marginLeft: 80
     }
   }); 

@@ -24,7 +24,7 @@ const EpisodeDetails = ({ navigation, route }) => {
       <TouchableOpacity 
         style = {styles.cardsDetail}
         onPress = {() => 
-            navigation.navigate('Characters', { character:item })} >
+            navigation.navigate('Character', { character:item })} >
         <Text style = {styles.textDetail}>
             {item}
         </Text>
