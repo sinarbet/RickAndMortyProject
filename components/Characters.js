@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FlatList,View, TouchableOpacity, Text,Image } from "react-native";
+import styles from "./styles";
 
 const Characters = ({ navigation, route }) => {
   const [data, setData] = useState([]);
@@ -18,8 +19,7 @@ const Characters = ({ navigation, route }) => {
   const renderItem = ({ item }) => {
     console.log(item)
     return (
-      <TouchableOpacity style= {styles= {marginTop: 100,marginLeft: 50}}
-        >
+      <TouchableOpacity style = {styles.cards}>
         <Text>{item}</Text>
         <Image source={{
           uri: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
